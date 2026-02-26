@@ -98,7 +98,7 @@ jobs:
       run: uv python install 3.13
 
     - name: Build documentation
-      run: uvx mkdocs build
+      run: uvx --with mkdocs-material mkdocs build
 
     - name: Setup SSH key
       uses: webfactory/ssh-agent@a6f90b1f127823b31d4d4a8d96047790581349bd # v0.9.1

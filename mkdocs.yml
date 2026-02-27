@@ -1,8 +1,8 @@
-site_name: briefcase-pythonanywhere
+site_name: pythonanywhere-briefcase-plugin
 site_description: A Briefcase publication channel plugin for deploying static web apps to PythonAnywhere.
 site_url: https://briefcase.pythonanywhere.com/
-repo_url: https://github.com/pythonanywhere/briefcase-pythonanywhere
-repo_name: pythonanywhere/briefcase-pythonanywhere
+repo_url: https://github.com/pythonanywhere/pythonanywhere-briefcase-plugin
+repo_name: pythonanywhere/pythonanywhere-briefcase-plugin
 
 docs_dir: docs
 

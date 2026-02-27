@@ -17,7 +17,7 @@ from pythonanywhere_core.exceptions import (
 from pythonanywhere_core.files import Files
 from pythonanywhere_core.webapp import Webapp
 
-import briefcase_pythonanywhere
+import pythonanywhere_briefcase_plugin
 
 if TYPE_CHECKING:
     from briefcase.channels.base import PublishCommandAPI
@@ -53,7 +53,7 @@ class PythonAnywherePublicationChannel(BasePublicationChannel):
             )
 
         os.environ["PYTHONANYWHERE_CLIENT"] = (
-            f"briefcase-pythonanywhere/{briefcase_pythonanywhere.__version__}"
+            f"pythonanywhere-briefcase-plugin/{pythonanywhere_briefcase_plugin.__version__}"
         )
 
         username = self._resolve_username(app)

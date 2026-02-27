@@ -9,7 +9,7 @@ from pythonanywhere_core.exceptions import (
     PythonAnywhereApiException,
 )
 
-from briefcase_pythonanywhere import PythonAnywherePublicationChannel
+from pythonanywhere_briefcase_plugin import PythonAnywherePublicationChannel
 
 
 def test_is_subclass_of_base():
@@ -29,7 +29,7 @@ def test_resolve_username_from_app_config(mock_app):
 
 def test_resolve_username_falls_back_to_core(mock_app, mocker):
     mocker.patch(
-        "briefcase_pythonanywhere.channel.get_username",
+        "pythonanywhere_briefcase_plugin.channel.get_username",
         return_value="coreuser",
     )
     channel = PythonAnywherePublicationChannel()
@@ -63,7 +63,7 @@ def test_publish_missing_api_token(mock_app, mock_command, dist_zip, mocker):
     mock_app.pythonanywhere_username = "testuser"
 
     mocker.patch(
-        "briefcase_pythonanywhere.channel.Files"
+        "pythonanywhere_briefcase_plugin.channel.Files"
     ).return_value.tree_post.side_effect = NoTokenError("no token")
 
     channel = PythonAnywherePublicationChannel()
@@ -75,7 +75,7 @@ def test_publish_auth_error(mock_app, mock_command, dist_zip, mocker):
     mock_app.pythonanywhere_username = "testuser"
 
     mocker.patch(
-        "briefcase_pythonanywhere.channel.Files"
+        "pythonanywhere_briefcase_plugin.channel.Files"
     ).return_value.tree_post.side_effect = AuthenticationError("bad token")
 
     channel = PythonAnywherePublicationChannel()
@@ -86,8 +86,8 @@ def test_publish_auth_error(mock_app, mock_command, dist_zip, mocker):
 def test_publish_creates_new_webapp(mock_app, mock_command, dist_zip, mocker):
     mock_app.pythonanywhere_username = "testuser"
 
-    mock_files_cls = mocker.patch("briefcase_pythonanywhere.channel.Files")
-    mock_webapp_cls = mocker.patch("briefcase_pythonanywhere.channel.Webapp")
+    mock_files_cls = mocker.patch("pythonanywhere_briefcase_plugin.channel.Files")
+    mock_webapp_cls = mocker.patch("pythonanywhere_briefcase_plugin.channel.Webapp")
     mock_webapp = mock_webapp_cls.return_value
     mock_webapp.get.side_effect = PythonAnywhereApiException("not found")
 
@@ -116,27 +116,27 @@ def test_publish_sets_pythonanywhere_client_env(
     mock_app.pythonanywhere_username = "testuser"
     monkeypatch.delenv("PYTHONANYWHERE_CLIENT", raising=False)
 
-    mocker.patch("briefcase_pythonanywhere.channel.Files")
-    mock_webapp_cls = mocker.patch("briefcase_pythonanywhere.channel.Webapp")
+    mocker.patch("pythonanywhere_briefcase_plugin.channel.Files")
+    mock_webapp_cls = mocker.patch("pythonanywhere_briefcase_plugin.channel.Webapp")
     mock_webapp_cls.return_value.get.return_value = {"id": 1}
 
     import os
 
-    import briefcase_pythonanywhere
+    import pythonanywhere_briefcase_plugin
 
     channel = PythonAnywherePublicationChannel()
     channel.publish_app(mock_app, mock_command)
 
     assert os.environ["PYTHONANYWHERE_CLIENT"] == (
-        f"briefcase-pythonanywhere/{briefcase_pythonanywhere.__version__}"
+        f"pythonanywhere-briefcase-plugin/{pythonanywhere_briefcase_plugin.__version__}"
     )
 
 
 def test_publish_extracts_zip_before_upload(mock_app, mock_command, dist_zip, mocker):
     mock_app.pythonanywhere_username = "testuser"
 
-    mock_files_cls = mocker.patch("briefcase_pythonanywhere.channel.Files")
-    mock_webapp_cls = mocker.patch("briefcase_pythonanywhere.channel.Webapp")
+    mock_files_cls = mocker.patch("pythonanywhere_briefcase_plugin.channel.Files")
+    mock_webapp_cls = mocker.patch("pythonanywhere_briefcase_plugin.channel.Webapp")
     mock_webapp_cls.return_value.get.return_value = {"id": 1}
 
     uploaded_local_dir = None
@@ -160,7 +160,7 @@ def test_publish_api_error_wrapped(mock_app, mock_command, dist_zip, mocker):
     mock_app.pythonanywhere_username = "testuser"
 
     mocker.patch(
-        "briefcase_pythonanywhere.channel.Files"
+        "pythonanywhere_briefcase_plugin.channel.Files"
     ).return_value.tree_post.side_effect = PythonAnywhereApiException("upload failed")
 
     channel = PythonAnywherePublicationChannel()
@@ -171,8 +171,8 @@ def test_publish_api_error_wrapped(mock_app, mock_command, dist_zip, mocker):
 def test_publish_updates_existing_webapp(mock_app, mock_command, dist_zip, mocker):
     mock_app.pythonanywhere_username = "testuser"
 
-    mocker.patch("briefcase_pythonanywhere.channel.Files")
-    mock_webapp_cls = mocker.patch("briefcase_pythonanywhere.channel.Webapp")
+    mocker.patch("pythonanywhere_briefcase_plugin.channel.Files")
+    mock_webapp_cls = mocker.patch("pythonanywhere_briefcase_plugin.channel.Webapp")
     mock_webapp = mock_webapp_cls.return_value
     mock_webapp.get.return_value = {"id": 123}
 

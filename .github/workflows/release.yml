@@ -32,7 +32,7 @@ jobs:
         PYPROJECT_VERSION=$(grep '^version =' pyproject.toml | sed 's/version = "\(.*\)"/\1/')
         echo "pyproject.toml version: $PYPROJECT_VERSION"
 
-        INIT_VERSION=$(grep '^__version__ =' src/briefcase_pythonanywhere/__init__.py | sed 's/__version__ = "\(.*\)"/\1/')
+        INIT_VERSION=$(grep '^__version__ =' src/pythonanywhere_briefcase_plugin/__init__.py | sed 's/__version__ = "\(.*\)"/\1/')
         echo "__init__.py version: $INIT_VERSION"
 
         if [ "$TAG_VERSION_NO_PREFIX" != "$PYPROJECT_VERSION" ]; then

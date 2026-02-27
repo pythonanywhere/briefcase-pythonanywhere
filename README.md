@@ -1,4 +1,4 @@
-# briefcase-pythonanywhere
+# pythonanywhere-briefcase-plugin
 
 A [Briefcase](https://briefcase.readthedocs.io/) publication channel plugin for deploying static web apps to [PythonAnywhere](https://www.pythonanywhere.com/).
 
@@ -15,7 +15,7 @@ A [Briefcase](https://briefcase.readthedocs.io/) publication channel plugin for 
 ## Installation
 
 ```console
-$ pip install briefcase-pythonanywhere
+$ pip install pythonanywhere-briefcase-plugin
 ```
 
 ## Quick start
@@ -51,8 +51,8 @@ Full documentation is available at [https://briefcase.pythonanywhere.com/](https
 Development requires [uv](https://docs.astral.sh/uv/getting-started/installation/).
 
 ```console
-$ git clone https://github.com/pythonanywhere/briefcase-pythonanywhere.git
-$ cd briefcase-pythonanywhere
+$ git clone https://github.com/pythonanywhere/pythonanywhere-briefcase-plugin.git
+$ cd pythonanywhere-briefcase-plugin
 $ uv sync
 $ uvx pre-commit install
 $ uv run pytest

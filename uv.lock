@@ -66,49 +66,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "briefcase-pythonanywhere"
-version = "0.0.1a1"
-source = { editable = "." }
-dependencies = [
-    { name = "pythonanywhere-core" },
-]
-
-[package.dev-dependencies]
-dev = [
-    { name = "briefcase" },
-    { name = "pytest" },
-    { name = "pytest-cov" },
-    { name = "pytest-mock" },
-    { name = "responses" },
-    { name = "ruff" },
-]
-test = [
-    { name = "pytest" },
-    { name = "pytest-cov" },
-    { name = "pytest-mock" },
-    { name = "responses" },
-]
-
-[package.metadata]
-requires-dist = [{ name = "pythonanywhere-core", specifier = ">=0.3.0" }]
-
-[package.metadata.requires-dev]
-dev = [
-    { name = "briefcase", git = "https://github.com/beeware/briefcase?rev=fca2cab707794f169b61fe2641d31af262bc5566" },
-    { name = "pytest", specifier = ">=9.0" },
-    { name = "pytest-cov", specifier = ">=7.0" },
-    { name = "pytest-mock", specifier = ">=3.10" },
-    { name = "responses", specifier = ">=0.25" },
-    { name = "ruff", specifier = ">=0.11" },
-]
-test = [
-    { name = "pytest", specifier = ">=9.0" },
-    { name = "pytest-cov", specifier = ">=7.0" },
-    { name = "pytest-mock", specifier = ">=3.10" },
-    { name = "responses", specifier = ">=0.25" },
-]
-
-[[package]]
 name = "build"
 version = "1.4.0"
 source = { registry = "https://pypi.org/simple" }
@@ -792,6 +749,49 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/87/c7/5e1547c44e31da50a460df93af11a535ace568ef89d7a811069ead340c4a/python-slugify-8.0.4.tar.gz", hash = "sha256:59202371d1d05b54a9e7720c5e038f928f45daaffe41dd10822f3907b937c856", size = 10921, upload-time = "2024-02-08T18:32:45.488Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/a4/62/02da182e544a51a5c3ccf4b03ab79df279f9c60c5e82d5e8bec7ca26ac11/python_slugify-8.0.4-py2.py3-none-any.whl", hash = "sha256:276540b79961052b66b7d116620b36518847f52d5fd9e3a70164fc8c50faa6b8", size = 10051, upload-time = "2024-02-08T18:32:43.911Z" },
+]
+
+[[package]]
+name = "pythonanywhere-briefcase-plugin"
+version = "0.0.1a2"
+source = { editable = "." }
+dependencies = [
+    { name = "pythonanywhere-core" },
+]
+
+[package.dev-dependencies]
+dev = [
+    { name = "briefcase" },
+    { name = "pytest" },
+    { name = "pytest-cov" },
+    { name = "pytest-mock" },
+    { name = "responses" },
+    { name = "ruff" },
+]
+test = [
+    { name = "pytest" },
+    { name = "pytest-cov" },
+    { name = "pytest-mock" },
+    { name = "responses" },
+]
+
+[package.metadata]
+requires-dist = [{ name = "pythonanywhere-core", specifier = ">=0.3.0" }]
+
+[package.metadata.requires-dev]
+dev = [
+    { name = "briefcase", git = "https://github.com/beeware/briefcase?rev=fca2cab707794f169b61fe2641d31af262bc5566" },
+    { name = "pytest", specifier = ">=9.0" },
+    { name = "pytest-cov", specifier = ">=7.0" },
+    { name = "pytest-mock", specifier = ">=3.10" },
+    { name = "responses", specifier = ">=0.25" },
+    { name = "ruff", specifier = ">=0.11" },
+]
+test = [
+    { name = "pytest", specifier = ">=9.0" },
+    { name = "pytest-cov", specifier = ">=7.0" },
+    { name = "pytest-mock", specifier = ">=3.10" },
+    { name = "responses", specifier = ">=0.25" },
 ]
 
 [[package]]

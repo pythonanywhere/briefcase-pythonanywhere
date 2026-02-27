@@ -20,7 +20,7 @@ pip install git+https://github.com/beeware/briefcase@main
 Install the plugin into your Briefcase project's virtual environment:
 
 ```console
-(venv) $ pip install briefcase-pythonanywhere
+(venv) $ pip install pythonanywhere-briefcase-plugin
 ```
 
 ## Quick start
@@ -45,7 +45,7 @@ Then publish:
 (venv) $ briefcase publish web static
 ```
 
-If `briefcase-pythonanywhere` is the only publication channel installed, it will be selected automatically. If you have multiple channels installed, specify the channel explicitly:
+If `pythonanywhere-briefcase-plugin` is the only publication channel installed, it will be selected automatically. If you have multiple channels installed, specify the channel explicitly:
 
 ```console
 (venv) $ briefcase publish web static --channel pythonanywhere
@@ -98,8 +98,8 @@ Development requires [uv](https://docs.astral.sh/uv/getting-started/installation
 Clone the repository and install the development dependencies:
 
 ```console
-$ git clone https://github.com/pythonanywhere/briefcase-pythonanywhere.git
-$ cd briefcase-pythonanywhere
+$ git clone https://github.com/pythonanywhere/pythonanywhere-briefcase-plugin.git
+$ cd pythonanywhere-briefcase-plugin
 $ uv sync
 ```
 
